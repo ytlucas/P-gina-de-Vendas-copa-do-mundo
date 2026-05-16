@@ -27,6 +27,7 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     background-color: #ffffff;
+    padding-top: 40px; /* Space for the urgency banner */
 }
 
 h1,
@@ -689,4 +690,72 @@ h6 {
     .new-price {
         font-size: 3rem;
     }
+}
+
+/* URGENCY & NOTIFICATIONS */
+.urgency-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ff3333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-weight: 800;
+    z-index: 9999;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    font-size: 1.1rem;
+}
+
+.notification-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.purchase-notification {
+    background: var(--dark-bg);
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    border-left: 5px solid var(--secondary-color);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transform: translateX(-150%);
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.5s ease;
+}
+
+.purchase-notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.purchase-content strong {
+    display: block;
+    color: var(--secondary-color);
+    font-size: 1rem;
+}
+
+.purchase-content span {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.football-icon {
+    font-size: 28px;
+    display: inline-block;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
 }
